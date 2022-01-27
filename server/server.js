@@ -6,10 +6,10 @@ import postRoutes from './routes/Rposts.js'
 env.config();
 const app = express();
 
-app.use('/posts',postRoutes)
+app.use(cors())
 app.use(express.json({limit:'30mb',extended:true}));
 app.use(express.urlencoded({limit:'30mb',extended:true}));
-app.use(cors())
+app.use('/posts',postRoutes)
 
 const connection_URL = process.env.DB_URL
 const PORT = process.env.PORT || 8000
